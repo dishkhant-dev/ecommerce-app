@@ -4,7 +4,7 @@
 import Image from "next/image";
 
 // Images
-import VersaceLogo from "@/assets/images/pages/home/FeaturedBrands/versace.png";
+import VersaceLogo from "@/assets/images/pages/home/featured-brands/versace.png";
 const FeaturedBrandsSection = () => {
     return (
         <div className="bg-[#000000] padding-main-x flex items-center gap-[106px] py-10.5">

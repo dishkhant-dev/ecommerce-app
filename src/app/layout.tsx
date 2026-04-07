@@ -10,6 +10,7 @@ import localFont from "next/font/local";
 // Components
 import HeaderSection from "@/components/layout/Header";
 import NavbarSection from "@/components/layout/Navbar";
+import FooterSection from "@/components/layout/Footer";
 
 
 // Metadata
@@ -99,6 +100,7 @@ export default function RootLayout({
         <HeaderSection />
         <NavbarSection /> 
         {children}
+        <FooterSection />
       </body>
     </html>
   );

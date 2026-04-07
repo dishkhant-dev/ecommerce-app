@@ -6,10 +6,18 @@ import Image from "next/image";
 // Images
 import ProductImage1 from "@/assets/images/products/product-1.png";
 
-const ProductListingSection = () => {
+interface IProductListingSection {
+    title: string;
+    classname: string;
+}
+
+const ProductListingSection = ({
+    title,
+    classname
+}: IProductListingSection) => {
     return (
-        <div className="mt-18 pb-16 border-b border-[#0000001A] margin-main-x">
-            <h2 className="text-center integralcf-font font-bold text-[48px] leading-[100%] mb-[55px]">NEW ARRIVALS</h2>
+        <div className={`${classname}`}>
+            <h2 className="text-center integralcf-font font-bold text-[48px] leading-[100%] mb-[55px]">{title}</h2>
 
             <div className="grid grid-cols-4 gap-5">
                 {[1, 2, 3, 4].map((i) => (

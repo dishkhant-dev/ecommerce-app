@@ -2,7 +2,7 @@
 
 import FeaturedBrandsSection from "./FeaturedBrands";
 import HomePageHeroSection from "./Hero";
-import NewArrivalsSection from "./NewArrivals";
+import ProductListingSection from "./ProductListing";
 
 const HomePageClient = () => {
     return (
@@ -11,7 +11,7 @@ const HomePageClient = () => {
 
             <FeaturedBrandsSection />
 
-            <NewArrivalsSection />
+            <ProductListingSection />
         </>
     )
 }

@@ -6,7 +6,7 @@ import Image from "next/image";
 // Images
 import ProductImage1 from "@/assets/images/products/product-1.png";
 
-const NewArrivalsSection = () => {
+const ProductListingSection = () => {
     return (
         <div className="mt-18 pb-16 border-b border-[#0000001A] margin-main-x">
             <h2 className="text-center integralcf-font font-bold text-[48px] leading-[100%] mb-[55px]">NEW ARRIVALS</h2>
@@ -60,4 +60,4 @@ const NewArrivalsSection = () => {
     )
 }
 
-export default NewArrivalsSection;
+export default ProductListingSection;

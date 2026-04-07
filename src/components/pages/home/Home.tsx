@@ -4,6 +4,7 @@ import BrowseByDressStyleSection from "./BrowseByDressStyle";
 import FeaturedBrandsSection from "./FeaturedBrands";
 import HomePageHeroSection from "./Hero";
 import ProductListingSection from "./ProductListing";
+import TestimonialsSection from "./Testimonials";
 
 const HomePageClient = () => {
     return (
@@ -17,6 +18,8 @@ const HomePageClient = () => {
             <ProductListingSection title="TOP SELLING" classname="mt-16 pb-20 margin-main-x" />
 
             <BrowseByDressStyleSection />
+
+            <TestimonialsSection />
         </>
     )
 }

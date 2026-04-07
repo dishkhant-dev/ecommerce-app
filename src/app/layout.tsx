@@ -98,7 +98,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <HeaderSection />
-        <NavbarSection /> 
+        <NavbarSection />
         {children}
         <FooterSection />
       </body>

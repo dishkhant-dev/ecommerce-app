@@ -17,7 +17,7 @@ body {
   font-weight: 400;
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1280px) {
   .margin-main-x {
     margin-left: 100px;
     margin-right: 100px;

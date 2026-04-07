@@ -1,72 +1,77 @@
 "use client";
 
-// Next Imports
 import Link from "next/link";
 import Image from "next/image";
 
-// Images
 import GooglePayImage from "@/assets/images/layout/footer/google-pay.png";
 import ApplyPayImage from "@/assets/images/layout/footer/apply-pay.png";
 import MasterCardImage from "@/assets/images/layout/footer/master-card.png";
 import VisaImage from "@/assets/images/layout/footer/visa.png";
 import PayPalImage from "@/assets/images/layout/footer/paypal.png";
 
-// Constants
 const PAYMENT_METHODS = [
-    {
-        id: 1,
-        image: VisaImage,
-        alt: "Visa"
-    },
-    {
-        id: 2,
-        image: MasterCardImage,
-        alt: "Master Card"
-    },
-    {
-        id: 3,
-        image: PayPalImage,
-        alt: "PayPal"
-    },
-    {
-        id: 4,
-        image: ApplyPayImage,
-        alt: "Apple Pay"
-    },
-    {
-        id: 5,
-        image: GooglePayImage,
-        alt: "Google Pay"
-    }
+    { id: 1, image: VisaImage, alt: "Visa" },
+    { id: 2, image: MasterCardImage, alt: "Master Card" },
+    { id: 3, image: PayPalImage, alt: "PayPal" },
+    { id: 4, image: ApplyPayImage, alt: "Apple Pay" },
+    { id: 5, image: GooglePayImage, alt: "Google Pay" },
 ];
 
 const FooterSection = () => {
     return (
-        <div className="bg-[#F0F0F0] pt-[140px] pb-20 padding-main-x relative">
-            <div className="absolute left-[100px] right-[100px] -top-20 px-16 bg-[#000000] rounded-[20px] flex items-center justify-between py-9">
-                <p className="integralcf-font font-bold text-[40px] leading-[45px] text-white">STAY UPTO DATE ABOUT <br /> OUR LATEST OFFERS</p>
-                <div className="w-full max-w-[350px] flex flex-col gap-3.5">
+        <div className="mt-50 bg-[#F0F0F0] pt-[190px] sm:pt-[170px] md:pt-[155px] lg:pt-[140px] pb-20 padding-main-x relative">
+            <div className="
+                absolute
+                left-4 sm:left-6 md:left-10 lg:left-16 xl:left-[100px]
+                right-4 sm:right-6 md:right-10 lg:right-16 xl:right-[100px]
+                -top-36 sm:-top-28 md:-top-28
+                px-6 sm:px-8 md:px-12 lg:px-16
+                bg-[#000000] rounded-[20px]
+                flex flex-col sm:flex-row items-center justify-between
+                gap-6 sm:gap-4 md:gap-0
+                pt-8 sm:pt-9 pb-7 sm:pb-9
+            ">
+                <p className="
+                    integralcf-font font-bold
+                    text-[32px] sm:text-[34px] md:text-[36px] lg:text-[40px]
+                    leading-[35px] sm:leading-[38px] md:leading-[41px] lg:leading-[45px]
+                    text-white sm:text-left
+                ">
+                    STAY UPTO DATE <br className="block sm:hidden" /> ABOUT{" "}
+                    <br className="hidden sm:block" />
+                    OUR<br className="block sm:hidden" /> LATEST OFFERS
+                </p>
+
+                <div className="w-full max-w-[400px] sm:max-w-[260px] md:max-w-[300px] lg:max-w-[350px] flex flex-col gap-3.5">
                     <div className="relative">
                         <div className="absolute left-4 top-1/2 -translate-y-1/2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21 4.125H3C2.70163 4.125 2.41548 4.24353 2.2045 4.4545C1.99353 4.66548 1.875 4.95163 1.875 5.25V18C1.875 18.4973 2.07254 18.9742 2.42417 19.3258C2.77581 19.6775 3.25272 19.875 3.75 19.875H20.25C20.7473 19.875 21.2242 19.6775 21.5758 19.3258C21.9275 18.9742 22.125 18.4973 22.125 18V5.25C22.125 4.95163 22.0065 4.66548 21.7955 4.4545C21.5845 4.24353 21.2984 4.125 21 4.125ZM12 11.9738L5.89219 6.375H18.1078L12 11.9738ZM8.69906 12L4.125 16.1925V7.8075L8.69906 12ZM10.3641 13.5262L11.2397 14.3297C11.4472 14.52 11.7185 14.6255 12 14.6255C12.2815 14.6255 12.5528 14.52 12.7603 14.3297L13.6359 13.5262L18.1078 17.625H5.89219L10.3641 13.5262ZM15.3009 12L19.875 7.8075V16.1925L15.3009 12Z" fill="black" fillOpacity="0.4" />
                             </svg>
                         </div>
-
                         <input
                             type="email"
                             placeholder="Enter your email address"
-                            className="bg-white rounded-[62px] py-3 pl-13 w-full text-[#000000] text-[16px] leading-[100%]"
+                            className="bg-white rounded-[62px] py-3 pl-13 w-full text-[#000000] text-[16px] leading-[100%] focus:outline-none focus:border-none"
                         />
                     </div>
-                    <div className="bg-white rounded-[62px] py-3 text-center w-full text-[#000000] text-[16px] font-medium leading-[100%]">Subscribe to Newsletter</div>
+                    <div className="bg-white rounded-[62px] py-3 text-center w-full text-[#000000] text-[16px] font-medium leading-[100%] cursor-pointer">
+                        Subscribe to Newsletter
+                    </div>
                 </div>
             </div>
 
-            <div className="flex justify-between">
-                <div>
-                    <div className="integralcf-font font-bold text-[33.45px] leading-[100%] text-[#000000]">SHOP.CO</div>
-                    <p className="mt-[25px] mb-[35px] text-[#00000099] text-[14px] leading-[22px]">We have clothes that suits your style and <br /> which you&apos;re proud to wear. From <br /> women to men.</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-between gap-y-8 sm:gap-y-10 md:gap-y-8 gap-x-4 md:gap-x-6 lg:gap-0">
+
+                <div className="col-span-2 md:col-span-3 lg:col-auto lg:max-w-[220px] xl:max-w-[250px]">
+                    <div className="integralcf-font font-bold text-[28.85px] sm:text-[30px] lg:text-[33.45px] leading-[100%] text-[#000000]">
+                        SHOP.CO
+                    </div>
+                    <p className="mt-3.5 sm:mt-4 lg:mt-[25px] mb-5 sm:mb-6 lg:mb-[35px] text-[#00000099] text-[14px] leading-[22px]">
+                        We have clothes that suits your style and{" "}
+                        <br className="hidden xl:block" /> which you&apos;re proud to wear. From{" "}
+                        <br className="hidden xl:block" /> women to men.
+                    </p>
                     <div className="flex items-center gap-3">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="14" cy="14" r="14" fill="white" />
@@ -93,8 +98,10 @@ const FooterSection = () => {
                 </div>
 
                 <div>
-                    <h2 className="text-[#000000] text-[16px] font-medium leading-[18px] tracking-[3px] mb-6.5">COMPANY</h2>
-                    <ul className="flex flex-col gap-4 text-[#00000099] text-[16px] leading-[19px]">
+                    <h2 className="text-[#000000] text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[18px] tracking-[3px] mb-4 sm:mb-5 lg:mb-6">
+                        COMPANY
+                    </h2>
+                    <ul className="flex flex-col gap-3 md:gap-3.5 lg:gap-4 text-[#00000099] text-[14px] sm:text-[15px] lg:text-[16px] leading-[19px]">
                         <li><Link href="/">About</Link></li>
                         <li><Link href="/">Features</Link></li>
                         <li><Link href="/">Works</Link></li>
@@ -103,8 +110,10 @@ const FooterSection = () => {
                 </div>
 
                 <div>
-                    <h2 className="text-[#000000] text-[16px] font-medium leading-[18px] tracking-[3px] mb-6.5">HELP</h2>
-                    <ul className="flex flex-col gap-4 text-[#00000099] text-[16px] leading-[19px]">
+                    <h2 className="text-[#000000] text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[18px] tracking-[3px] mb-4 sm:mb-5 lg:mb-6">
+                        HELP
+                    </h2>
+                    <ul className="flex flex-col gap-3 md:gap-3.5 lg:gap-4 text-[#00000099] text-[14px] sm:text-[15px] lg:text-[16px] leading-[19px]">
                         <li><Link href="/">Customer Support</Link></li>
                         <li><Link href="/">Delivery Details</Link></li>
                         <li><Link href="/">Terms & Conditions</Link></li>
@@ -113,8 +122,10 @@ const FooterSection = () => {
                 </div>
 
                 <div>
-                    <h2 className="text-[#000000] text-[16px] font-medium leading-[18px] tracking-[3px] mb-6.5">FAQ</h2>
-                    <ul className="flex flex-col gap-4 text-[#00000099] text-[16px] leading-[19px]">
+                    <h2 className="text-[#000000] text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[18px] tracking-[3px] mb-4 sm:mb-5 lg:mb-6">
+                        FAQ
+                    </h2>
+                    <ul className="flex flex-col gap-3 md:gap-3.5 lg:gap-4 text-[#00000099] text-[14px] sm:text-[15px] lg:text-[16px] leading-[19px]">
                         <li><Link href="/">Account</Link></li>
                         <li><Link href="/">Manage Deliveries</Link></li>
                         <li><Link href="/">Orders</Link></li>
@@ -123,8 +134,10 @@ const FooterSection = () => {
                 </div>
 
                 <div>
-                    <h2 className="text-[#000000] text-[16px] font-medium leading-[18px] tracking-[3px] mb-6.5">RESOURCES</h2>
-                    <ul className="flex flex-col gap-4 text-[#00000099] text-[16px] leading-[19px]">
+                    <h2 className="text-[#000000] text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[18px] tracking-[3px] mb-4 sm:mb-5 lg:mb-6">
+                        RESOURCES
+                    </h2>
+                    <ul className="flex flex-col gap-3 md:gap-3.5 lg:gap-4 text-[#00000099] text-[14px] sm:text-[15px] lg:text-[16px] leading-[19px]">
                         <li><Link href="/">Free eBooks</Link></li>
                         <li><Link href="/">Development Tutorial</Link></li>
                         <li><Link href="/">How to - Blog</Link></li>
@@ -133,25 +146,22 @@ const FooterSection = () => {
                 </div>
             </div>
 
-            <div className="mt-[50px] mb-5 border-t border-[#0000001A]"></div>
+            <div className="mt-10 sm:mt-12 lg:mt-[50px] mb-4 sm:mb-5 border-t border-[#0000001A]"></div>
 
-            <div className="flex items-center justify-between">
-                <p className="text-[#00000099] text-[14px] leading-[100%]">Shop.co © 2000-2023, All Rights Reserved</p>
-                <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
+                <p className="text-[#00000099] text-[13px] sm:text-[14px] leading-[100%]">
+                    Shop.co © 2000-2023, All Rights Reserved
+                </p>
+                <div className="flex items-center gap-2 sm:gap-3">
                     {PAYMENT_METHODS.map((item) => (
                         <div key={item.id} className="relative w-8 h-8">
-                            <Image
-                                src={item.image}
-                                alt={item.alt}
-                                fill
-                                className="object-cover"
-                            />
+                            <Image src={item.image} alt={item.alt} fill className="object-cover" />
                         </div>
                     ))}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default FooterSection;

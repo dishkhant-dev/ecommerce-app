@@ -17,6 +17,58 @@ body {
   font-weight: 400;
 }
 
+
+/* Base (Mobile): < 640px */
+.margin-main-x {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.padding-main-x {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* SM: 640px — Large phones / small tablets */
+@media (min-width: 640px) {
+  .margin-main-x {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .padding-main-x {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* MD: 768px — Tablets */
+@media (min-width: 768px) {
+  .margin-main-x {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .padding-main-x {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* LG: 1024px — Small laptops */
+@media (min-width: 1024px) {
+  .margin-main-x {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
+  .padding-main-x {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+/* XL: 1280px — Desktops */
 @media (min-width: 1280px) {
   .margin-main-x {
     margin-left: 100px;

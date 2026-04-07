@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
+
+.satoshi-font {
+  font-family: var(--font-satoshi);
+}
+
+.integralcf-font {
+  font-family: var(--font-integralcf);
+}
+
+
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-satoshi);
+  font-weight: 400;
 }

@@ -20,23 +20,8 @@ const PAYMENT_METHODS = [
 const FooterSection = () => {
     return (
         <div className="mt-[184px] sm:mt-50 bg-[#F0F0F0] pt-[190px] sm:pt-[170px] md:pt-[155px] lg:pt-[140px] pb-20 padding-main-x relative">
-            <div className="
-                absolute
-                left-4 sm:left-6 md:left-10 lg:left-16 xl:left-[100px]
-                right-4 sm:right-6 md:right-10 lg:right-16 xl:right-[100px]
-                -top-36 sm:-top-28 md:-top-28
-                px-6 sm:px-8 md:px-12 lg:px-16
-                bg-[#000000] rounded-[20px]
-                flex flex-col sm:flex-row items-center justify-between
-                gap-6 sm:gap-4 md:gap-0
-                pt-8 sm:pt-9 pb-7 sm:pb-9
-            ">
-                <p className="
-                    integralcf-font font-bold
-                    text-[32px] sm:text-[34px] md:text-[36px] lg:text-[40px]
-                    leading-[35px] sm:leading-[38px] md:leading-[41px] lg:leading-[45px]
-                    text-white sm:text-left
-                ">
+            <div className="absolute left-4 sm:left-6 md:left-10 lg:left-16 xl:left-[100px] right-4 sm:right-6 md:right-10 lg:right-16 xl:right-[100px] -top-36 sm:-top-28 md:-top-28 px-6 sm:px-8 md:px-12 lg:px-16 bg-[#000000] rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4 md:gap-0 pt-8 sm:pt-9 pb-7 sm:pb-9">
+                <p className="integralcf-font font-bold text-[32px] sm:text-[34px] md:text-[36px] lg:text-[40px] leading-[35px] sm:leading-[38px] md:leading-[41px] lg:leading-[45px] text-white sm:text-left ">
                     STAY UPTO DATE <br className="block sm:hidden" /> ABOUT{" "}
                     <br className="hidden sm:block" />
                     OUR<br className="block sm:hidden" /> LATEST OFFERS

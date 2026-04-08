@@ -284,23 +284,6 @@ interface Product {
 
 ---
 
-## 🔮 What I'd Add Next
-
-If this were a production project, here's what I'd build next:
-
-- [ ] **Product detail page** (`/products/[id]`) with dynamic routing
-- [ ] **Cart state management** using React Context or Zustand
-- [ ] **Persistent cart** with `localStorage` sync
-- [ ] **Search functionality** — filter products by name/category
-- [ ] **Category pages** — route-based category filtering
-- [ ] **Checkout flow** — multi-step form with validation
-- [ ] **Authentication** — sign-up/login integration
-- [ ] **Wishlist / Favorites** functionality
-- [ ] **Unit & integration tests** with Jest + React Testing Library
-- [ ] **Accessibility audit** — full WCAG 2.1 AA compliance
-
----
-
 ## 📂 Figma Reference
 
 The UI implementation follows a provided Figma design file. Key design decisions preserved:
@@ -320,4 +303,3 @@ The UI implementation follows a provided Figma design file. Key design decisions
 **Next.js 16** • **TypeScript** • **Tailwind CSS 4** • **React 19**
 
 </div>
-]]>

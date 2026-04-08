@@ -8,7 +8,7 @@ import ProductImage from "@/assets/images/products/product-2.png";
 
 const CartPageClient = () => {
     return (
-        <div className="border-t border-[#0000001A] margin-main-x pt-5.5 sm:pt-6 lg:pt-8 pb-[120px] sm:pb-[150px] lg:pb-[170px]">
+        <div className="border-t border-[#0000001A] margin-main-x pt-5.5 sm:pt-6 lg:pt-8 sm:pb-[150px] lg:pb-[170px]">
             <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
                 <div className="flex items-center gap-1">
                     <span className="text-[#00000099] text-[14px] sm:text-[15px] lg:text-[16px] leading-[100%]">Home</span>

@@ -1,26 +1,7 @@
-<![CDATA[<div align="center">
-
 # 🛍️ SHOP.CO — E-Commerce Storefront
 
 ### A pixel-perfect, performance-first e-commerce UI built with Next.js 16, TypeScript & Tailwind CSS 4
 
-[![Live Demo](https://img.shields.io/badge/▶_Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ecommerce-app-dishkhant.vercel.app)
-[![GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dishkhant-dev/ecommerce-app)
-[![Next.js](https://img.shields.io/badge/Next.js-16.2.2-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-
-</div>
-
----
-
-## 📸 Preview
-
-| Homepage | Cart Page |
-|----------|-----------|
-| ![Homepage](./docs/homepage-desktop.png) | ![Cart Page](./docs/cart-page.png) |
-
----
 
 ## 📋 Table of Contents
 

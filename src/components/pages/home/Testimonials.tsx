@@ -1,44 +1,185 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+
 const TestimonialsSection = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: "start",
+        slidesToScroll: 1,
+        breakpoints: {
+            '(min-width: 640px)': { slidesToScroll: 2 },
+            '(min-width: 1024px)': { slidesToScroll: 3 }
+        }
+    });
+
+    const [canScrollPrev, setCanScrollPrev] = useState(false);
+    const [canScrollNext, setCanScrollNext] = useState(false);
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setCanScrollPrev(emblaApi.canScrollPrev());
+        setCanScrollNext(emblaApi.canScrollNext());
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        onSelect();
+        emblaApi.on("select", onSelect);
+        emblaApi.on("reInit", onSelect);
+    }, [emblaApi, onSelect]);
+
+
+    // Constant Data
+    const testimonials = [
+        {
+            id: 1,
+            name: "Sarah M.",
+            rating: 5,
+            review: "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+        },
+        {
+            id: 2,
+            name: "Alex K.",
+            rating: 5,
+            review: "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
+        },
+        {
+            id: 3,
+            name: "James L.",
+            rating: 5,
+            review: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+        },
+        {
+            id: 4,
+            name: "Mooen M.",
+            rating: 5,
+            review: "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+        },
+        {
+            id: 5,
+            name: "Emily R.",
+            rating: 5,
+            review: "Shop.co has completely transformed my wardrobe! The attention to detail and quality of their clothing is unmatched. I always receive compliments when wearing their pieces."
+        },
+        {
+            id: 6,
+            name: "Michael B.",
+            rating: 5,
+            review: "Outstanding customer service and amazing products! Shop.co never disappoints. Their collection is always fresh and stylish, making it my go-to for all fashion needs."
+        },
+        {
+            id: 7,
+            name: "Sarah M.",
+            rating: 5,
+            review: "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+        },
+        {
+            id: 8,
+            name: "Alex K.",
+            rating: 5,
+            review: "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
+        },
+        {
+            id: 9,
+            name: "James L.",
+            rating: 5,
+            review: "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+        },
+        {
+            id: 10,
+            name: "Mooen M.",
+            rating: 5,
+            review: "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+        },
+        {
+            id: 11,
+            name: "Emily R.",
+            rating: 5,
+            review: "Shop.co has completely transformed my wardrobe! The attention to detail and quality of their clothing is unmatched. I always receive compliments when wearing their pieces."
+        },
+        {
+            id: 12,
+            name: "Michael B.",
+            rating: 5,
+            review: "Outstanding customer service and amazing products! Shop.co never disappoints. Their collection is always fresh and stylish, making it my go-to for all fashion needs."
+        }
+    ];
+
     return (
         <div className="mt-[50px] sm:mt-20 mb-[50px] sm:mb-[170px]">
             <div className="margin-main-x flex items-end justify-between mb-6 sm:mb-10">
-                <h2 className="integralcf-font font-bold text-[32px] sm:text-[48px] leading-[100%]">OUR HAPPY CUSTOMERS</h2>
+                <h2 className="integralcf-font font-bold text-[32px] sm:text-[48px] leading-[100%]">
+                    OUR HAPPY CUSTOMERS
+                </h2>
                 <div className="flex items-center gap-4">
-                    <svg className="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.70406 4.4541L2.95406 11.2041C2.84918 11.3086 2.76597 11.4328 2.70919 11.5696C2.6524 11.7063 2.62317 11.8529 2.62317 12.001C2.62317 12.149 2.6524 12.2957 2.70919 12.4324C2.76597 12.5691 2.84918 12.6933 2.95406 12.7979L9.70406 19.5479C9.91541 19.7592 10.2021 19.8779 10.5009 19.8779C10.7998 19.8779 11.0865 19.7592 11.2978 19.5479C11.5092 19.3365 11.6279 19.0499 11.6279 18.751C11.6279 18.4521 11.5092 18.1654 11.2978 17.9541L6.46875 13.125L20.25 13.125C20.5484 13.125 20.8345 13.0065 21.0455 12.7955C21.2565 12.5846 21.375 12.2984 21.375 12C21.375 11.7017 21.2565 11.4155 21.0455 11.2045C20.8345 10.9936 20.5484 10.875 20.25 10.875L6.46875 10.875L11.2988 6.04598C11.5101 5.83463 11.6288 5.54799 11.6288 5.2491C11.6288 4.95022 11.5101 4.66357 11.2988 4.45223C11.0874 4.24088 10.8008 4.12215 10.5019 4.12215C10.203 4.12215 9.91634 4.24088 9.705 4.45223L9.70406 4.4541Z" fill="black" />
-                    </svg>
-                    <svg className="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.2959 4.4541L21.0459 11.2041C21.1508 11.3086 21.234 11.4328 21.2908 11.5696C21.3476 11.7063 21.3768 11.8529 21.3768 12.001C21.3768 12.149 21.3476 12.2957 21.2908 12.4324C21.234 12.5691 21.1508 12.6933 21.0459 12.7979L14.2959 19.5479C14.0846 19.7592 13.7979 19.8779 13.4991 19.8779C13.2002 19.8779 12.9135 19.7592 12.7022 19.5479C12.4908 19.3365 12.3721 19.0499 12.3721 18.751C12.3721 18.4521 12.4908 18.1654 12.7022 17.9541L17.5313 13.125L3.75 13.125C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5846 2.625 12.2984 2.625 12C2.625 11.7017 2.74353 11.4155 2.95451 11.2045C3.16548 10.9936 3.45163 10.875 3.75 10.875L17.5313 10.875L12.7013 6.04598C12.4899 5.83463 12.3712 5.54799 12.3712 5.2491C12.3712 4.95022 12.4899 4.66357 12.7013 4.45223C12.9126 4.24088 13.1992 4.12215 13.4981 4.12215C13.797 4.12215 14.0837 4.24088 14.295 4.45223L14.2959 4.4541Z" fill="black" />
-                    </svg>
+                    <button
+                        onClick={scrollPrev}
+                        disabled={!canScrollPrev}
+                        className={`cursor-pointer transition-opacity ${!canScrollPrev ? "opacity-30 cursor-not-allowed" : "hover:opacity-70"
+                            }`}
+                        aria-label="Previous testimonials"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.70406 4.4541L2.95406 11.2041C2.84918 11.3086 2.76597 11.4328 2.70919 11.5696C2.6524 11.7063 2.62317 11.8529 2.62317 12.001C2.62317 12.149 2.6524 12.2957 2.70919 12.4324C2.76597 12.5691 2.84918 12.6933 2.95406 12.7979L9.70406 19.5479C9.91541 19.7592 10.2021 19.8779 10.5009 19.8779C10.7998 19.8779 11.0865 19.7592 11.2978 19.5479C11.5092 19.3365 11.6279 19.0499 11.6279 18.751C11.6279 18.4521 11.5092 18.1654 11.2978 17.9541L6.46875 13.125L20.25 13.125C20.5484 13.125 20.8345 13.0065 21.0455 12.7955C21.2565 12.5846 21.375 12.2984 21.375 12C21.375 11.7017 21.2565 11.4155 21.0455 11.2045C20.8345 10.9936 20.5484 10.875 20.25 10.875L6.46875 10.875L11.2988 6.04598C11.5101 5.83463 11.6288 5.54799 11.6288 5.2491C11.6288 4.95022 11.5101 4.66357 11.2988 4.45223C11.0874 4.24088 10.8008 4.12215 10.5019 4.12215C10.203 4.12215 9.91634 4.24088 9.705 4.45223L9.70406 4.4541Z" fill="black" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={scrollNext}
+                        disabled={!canScrollNext}
+                        className={`cursor-pointer transition-opacity ${!canScrollNext ? "opacity-30 cursor-not-allowed" : "hover:opacity-70"
+                            }`}
+                        aria-label="Next testimonials"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.2959 4.4541L21.0459 11.2041C21.1508 11.3086 21.234 11.4328 21.2908 11.5696C21.3476 11.7063 21.3768 11.8529 21.3768 12.001C21.3768 12.149 21.3476 12.2957 21.2908 12.4324C21.234 12.5691 21.1508 12.6933 21.0459 12.7979L14.2959 19.5479C14.0846 19.7592 13.7979 19.8779 13.4991 19.8779C13.2002 19.8779 12.9135 19.7592 12.7022 19.5479C12.4908 19.3365 12.3721 19.0499 12.3721 18.751C12.3721 18.4521 12.4908 18.1654 12.7022 17.9541L17.5313 13.125L3.75 13.125C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5846 2.625 12.2984 2.625 12C2.625 11.7017 2.74353 11.4155 2.95451 11.2045C3.16548 10.9936 3.45163 10.875 3.75 10.875L17.5313 10.875L12.7013 6.04598C12.4899 5.83463 12.3712 5.54799 12.3712 5.2491C12.3712 4.95022 12.4899 4.66357 12.7013 4.45223C12.9126 4.24088 13.1992 4.12215 13.4981 4.12215C13.797 4.12215 14.0837 4.24088 14.295 4.45223L14.2959 4.4541Z" fill="black" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
-            <div className="flex items-center gap-4 sm:gap-5 overflow-hidden">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <div key={i} className="w-full max-w-[358px] sm:max-w-[400px] shrink-0 border border-[#0000001A] rounded-[20px] px-6 sm:px-8 pt-6 sm:pt-7 pb-6 sm:pb-[50px]">
-                        <div className="flex items-center gap-1.5 sm:gap-[6.50px]">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                                <svg key={i} width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="#FFC633" />
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex gap-4 sm:gap-5">
+                    {testimonials.map((testimonial) => (
+                        <div
+                            key={testimonial.id}
+                            className="w-full max-w-[358px] sm:max-w-[400px] shrink-0 border border-[#0000001A] rounded-[20px] px-6 sm:px-8 pt-6 sm:pt-7 pb-6 sm:pb-[50px]"
+                        >
+                            <div className="flex items-center gap-1.5 sm:gap-[6.50px]">
+                                {[...Array(testimonial.rating)].map((_, i) => (
+                                    <svg key={i} width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.7369 0L13.9354 6.8872L21.4739 7.80085L15.9121 12.971L17.3727 20.4229L10.7369 16.731L4.10114 20.4229L5.56173 12.971L-3.8147e-06 7.80085L7.53849 6.8872L10.7369 0Z" fill="#FFC633" />
+                                    </svg>
+                                ))}
+                            </div>
+
+                            <div className="mt-3 sm:mt-[15px] mb-2 sm:mb-3 flex items-center gap-1">
+                                <h4 className="text-[#000000] font-bold text-[16px] sm:text-[20px] leading-[22px]">
+                                    {testimonial.name}
+                                </h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1218 15.6557 10.039 15.6004 9.96938 15.5306L7.71938 13.2806C7.57865 13.1399 7.49959 12.949 7.49959 12.75C7.49959 12.551 7.57865 12.3601 7.71938 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44903 11.9996 8.6399 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.2891 9.14969 15.3718 9.09442 15.4628 9.0567C15.5539 9.01899 15.6515 8.99958 15.75 8.99958C15.8486 8.99958 15.9461 9.01899 16.0372 9.0567C16.1282 9.09442 16.2109 9.14969 16.2806 9.21937C16.3503 9.28906 16.4056 9.37178 16.4433 9.46283C16.481 9.55387 16.5004 9.65145 16.5004 9.75C16.5004 9.84855 16.481 9.94613 16.4433 10.0372C16.4056 10.1282 16.3503 10.2109 16.2806 10.2806Z" fill="#01AB31" />
                                 </svg>
-                            ))}
-                        </div>
+                            </div>
 
-                        <div className="mt-3 sm:mt-[15px] mb-2 sm:mb-3 flex items-center gap-1">
-                            <h4 className="text-[#000000] font-bold text-[16px] sm:text-[20px] leading-[22px]">Sarah M.</h4>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM16.2806 10.2806L11.0306 15.5306C10.961 15.6004 10.8783 15.6557 10.7872 15.6934C10.6962 15.7312 10.5986 15.7506 10.5 15.7506C10.4014 15.7506 10.3038 15.7312 10.2128 15.6934C10.1218 15.6557 10.039 15.6004 9.96938 15.5306L7.71938 13.2806C7.57865 13.1399 7.49959 12.949 7.49959 12.75C7.49959 12.551 7.57865 12.3601 7.71938 12.2194C7.86011 12.0786 8.05098 11.9996 8.25 11.9996C8.44903 11.9996 8.6399 12.0786 8.78063 12.2194L10.5 13.9397L15.2194 9.21937C15.2891 9.14969 15.3718 9.09442 15.4628 9.0567C15.5539 9.01899 15.6515 8.99958 15.75 8.99958C15.8486 8.99958 15.9461 9.01899 16.0372 9.0567C16.1282 9.09442 16.2109 9.14969 16.2806 9.21937C16.3503 9.28906 16.4056 9.37178 16.4433 9.46283C16.481 9.55387 16.5004 9.65145 16.5004 9.75C16.5004 9.84855 16.481 9.94613 16.4433 10.0372C16.4056 10.1282 16.3503 10.2109 16.2806 10.2806Z" fill="#01AB31" />
-                            </svg>
+                            <p className="text-[#00000099] text-[14px] sm:text-[16px] leading-[22px]">
+                                "{testimonial.review}"
+                            </p>
                         </div>
-
-                        <p className="text-[#00000099] text-[14px] sm:text-[16px] leading-[22px]">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default TestimonialsSection;

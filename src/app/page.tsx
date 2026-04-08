@@ -37,7 +37,7 @@ async function getProducts(): Promise<Product[]> {
 
 const HomePage = async () => {
   const allProducts = await getProducts()
-
+console.log('allProducts', allProducts);
   const newArrivals = allProducts.slice(0, 4);
   const topSelling = allProducts.slice(4, 8);
 

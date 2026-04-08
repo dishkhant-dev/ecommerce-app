@@ -19,7 +19,7 @@ const PAYMENT_METHODS = [
 
 const FooterSection = () => {
     return (
-        <div className="mt-50 bg-[#F0F0F0] pt-[190px] sm:pt-[170px] md:pt-[155px] lg:pt-[140px] pb-20 padding-main-x relative">
+        <div className="mt-[184px] sm:mt-50 bg-[#F0F0F0] pt-[190px] sm:pt-[170px] md:pt-[155px] lg:pt-[140px] pb-20 padding-main-x relative">
             <div className="
                 absolute
                 left-4 sm:left-6 md:left-10 lg:left-16 xl:left-[100px]

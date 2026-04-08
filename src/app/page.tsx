@@ -22,22 +22,28 @@ async function getProducts(): Promise<Product[]> {
         revalidate: 3600,
         tags: ['products']
       },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; YourApp/1.0)',
+      }
     })
 
     if (!res.ok) {
+      console.error(`Failed to fetch products: ${res.status}`);
       throw new Error(`Failed to fetch products: ${res.status}`)
     }
 
-    return res.json()
+    const data = await res.json();
+    console.log('✅ Server fetched products:', data.length);
+    return data;
   } catch (error) {
-    console.error('Error fetching products:', error)
+    console.error('❌ Error fetching products:', error)
     return []
   }
 }
 
 const HomePage = async () => {
   const allProducts = await getProducts()
-console.log('allProducts', allProducts);
+
   const newArrivals = allProducts.slice(0, 4);
   const topSelling = allProducts.slice(4, 8);
 

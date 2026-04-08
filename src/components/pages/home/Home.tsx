@@ -13,9 +13,9 @@ const HomePageClient = () => {
 
             <FeaturedBrandsSection />
 
-            <ProductListingSection title="NEW ARRIVALS" classname="mt-18 pb-16 border-b border-[#0000001A] margin-main-x" />
+            <ProductListingSection title="NEW ARRIVALS" classname="mt-[50px] sm:mt-18 pb-10 sm:pb-16 border-b border-[#0000001A] margin-main-x" />
 
-            <ProductListingSection title="TOP SELLING" classname="mt-16 pb-20 margin-main-x" />
+            <ProductListingSection title="TOP SELLING" classname="mt-10 sm:mt-16 pb-[50px] sm:pb-20 margin-main-x" />
 
             <BrowseByDressStyleSection />
 

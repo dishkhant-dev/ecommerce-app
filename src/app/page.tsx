@@ -22,18 +22,21 @@ async function getProducts(): Promise<Product[]> {
         revalidate: 3600,
         tags: ['products']
       },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; YourApp/1.0)',
+      }
     })
 
     if (!res.ok) {
-      console.error(`⚠️ Server-side fetch failed (status ${res.status}) — client-side fallback will handle it`);
-      return []
+      console.error(`Failed to fetch products: ${res.status}`);
+      throw new Error(`Failed to fetch products: ${res.status}`)
     }
 
     const data = await res.json();
     console.log('✅ Server fetched products:', data.length);
     return data;
   } catch (error) {
-    console.error('⚠️ Server-side fetch error — client-side fallback will handle it:', error)
+    console.error('❌ Error fetching products:', error)
     return []
   }
 }

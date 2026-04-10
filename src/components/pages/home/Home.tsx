@@ -44,14 +44,26 @@ const HomePageClient = ({
             setLoading(true);
             setError(null);
 
-            fetch('https://fakestoreapi.com/products')
+            fetch('https://dummyjson.com/products?limit=20')
                 .then(res => {
                     if (!res.ok) {
                         throw new Error(`HTTP error! status: ${res.status}`);
                     }
                     return res.json();
                 })
-                .then(data => {
+                .then(json => {
+                    const data: Product[] = json.products.map((p: any) => ({
+                        id: p.id,
+                        title: p.title,
+                        price: p.price,
+                        description: p.description,
+                        category: p.category,
+                        image: p.images?.[0] || '',
+                        rating: {
+                            rate: p.rating,
+                            count: p.reviews?.length || 0,
+                        },
+                    }));
                     console.log('✅ Client-side fetch successful:', data.length);
                     setNewArrivals(data.slice(0, 4));
                     setTopSelling(data.slice(4, 8));

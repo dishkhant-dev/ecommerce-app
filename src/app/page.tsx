@@ -17,7 +17,7 @@ export interface Product {
 
 async function getProducts(): Promise<Product[]> {
   try {
-    const res = await fetch('https://fakestoreapi.com/products', {
+    const res = await fetch('https://dummyjson.com/products?limit=20', {
       next: {
         revalidate: 3600,
         tags: ['products']
@@ -29,10 +29,24 @@ async function getProducts(): Promise<Product[]> {
 
     if (!res.ok) {
       console.error(`Failed to fetch products: ${res.status}`);
-      throw new Error(`Failed to fetch products: ${res.status}`)
+      throw new Error(`Failed to fetch products: ${res.status}`);
     }
 
-    const data = await res.json();
+    const json = await res.json();
+
+    const data: Product[] = json.products.map((p: any) => ({
+      id: p.id,
+      title: p.title,
+      price: p.price,
+      description: p.description,
+      category: p.category,
+      image: p.images?.[0] || '',
+      rating: {
+        rate: p.rating,
+        count: p.reviews?.length || 0,
+      },
+    }));
+
     console.log('✅ Server fetched products:', data.length);
     return data;
   } catch (error) {
